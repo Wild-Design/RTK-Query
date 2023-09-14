@@ -1,29 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useEffect, useState } from 'react';
-import { getPosts } from '../api/posts';
 import { useGetPostsQuery } from '../api/postsApi';
 
 export default function PostList({ setPostId }) {
   const { data: posts, isLoading, error } = useGetPostsQuery();
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [error, setError] = useState(null);
-  // const [posts, setPosts] = useState(null);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     setIsLoading(true);
-  //     try {
-  //       const data = await getPosts();
-  //       setPosts(data);
-  //       setError(null);
-  //     } catch (error) {
-  //       setError(error);
-  //       setPosts(null);
-  //     }
-  //     setIsLoading(false);
-  //   };
-  //   fetchData();
-  // }, []);
 
   if (isLoading) {
     return (
@@ -36,7 +15,7 @@ export default function PostList({ setPostId }) {
   if (error) {
     return (
       <section className='alert alert-danger'>
-        Error fetching posts: {error.message}
+        Error fetching posts: {error.error}
       </section>
     );
   }
