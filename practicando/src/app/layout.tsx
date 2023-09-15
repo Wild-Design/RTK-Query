@@ -1,10 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Link from 'next/link';
-import NavBar from './NavBar';
-// import { store } from '@/ReduxToolkit/store';
-// import { Provider } from 'react-redux';
+import NavBar from '../components/NavBar';
+import { Providers } from '../ReduxToolkit/Provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,13 +17,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    // <Provider store={store}>
     <html lang='es'>
       <body className={inter.className}>
-        <NavBar />
-        {children}
+        <Providers>
+          <NavBar />
+          {children}
+        </Providers>
       </body>
     </html>
-    // </Provider>
   );
 }
