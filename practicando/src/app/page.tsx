@@ -5,7 +5,6 @@ export default function Home() {
     <main>
       <h1>Página principal</h1>
       <div className='flex  gap-10 text-blue-500'>
-        <Link href={'/taskease'}>TaskEase</Link>
         <Link href={'/countries'}>Countries</Link>
       </div>
     </main>
